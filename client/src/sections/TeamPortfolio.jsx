@@ -8,24 +8,28 @@ const teamMembers = [
     role: "Full-Stack Developer",
     bio: "Full-stack developer & data engineer with expertise in building scalable web applications.",
     portfolioLink: "https://tanmoypal-portfolio.vercel.app/",
+    image: "/dataseva.jpeg",
   },
   {
     name: "Alex Johnson",
     role: "UI/UX Designer",
     bio: "Creative designer focused on user-centered design and modern interfaces.",
     portfolioLink: "#",
+    image: "/tanmoy_pal.png",
   },
   {
     name: "Sarah Williams",
     role: "Data Scientist",
     bio: "Machine learning expert specializing in predictive analytics and data visualization.",
     portfolioLink: "#",
+    image: "/dataseva.jpeg",
   },
   {
     name: "Mike Chen",
     role: "DevOps Engineer",
     bio: "Infrastructure specialist building robust, scalable cloud architectures.",
     portfolioLink: "#",
+    image: "/dataseva.jpeg",
   },
 ];
 
@@ -69,7 +73,7 @@ const TeamPortfolio = () => {
               {/* Team Member Image */}
               <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src="/dataseva.jpeg"
+                  src={member.image}
                   alt={`${member.name} - Portfolio`}
                   className="w-full h-full object-cover"
                 />
