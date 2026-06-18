@@ -12,8 +12,8 @@ const teamMembers = [
   },
   {
     name: "Alex Johnson",
-    role: "UI/UX Designer",
-    bio: "Creative designer focused on user-centered design and modern interfaces.",
+    role: "Backend Developer",
+    bio: "Backend developer with expertise in building scalable web applications.",
     portfolioLink: "#",
     image: "/tanmoy_pal.png",
   },
