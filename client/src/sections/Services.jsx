@@ -27,13 +27,13 @@ const services = [
   },
   {
     icon: <Cloud className="w-6 h-6 text-blue-600" />,
-    title: "Cloud Solutions",
-    desc: "Migrate, modernize, and manage your data on the cloud with confidence.",
+    title: "Web Development",
+    desc: "Build responsive and user-friendly web applications for your business.",
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-blue-600" />,
-    title: "Data Governance",
-    desc: "Ensure data quality, security, and compliance with strong governance frameworks.",
+    title: "App Development",
+    desc: "Develop native mobile applications for iOS and Android platforms.",
   },
 ];
 
@@ -73,7 +73,13 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500/50 hover:bg-white/[0.08] transition-all duration-300 flex flex-col h-full group"
+              onClick={() => {
+                const contact = document.getElementById("contact");
+                if (contact) {
+                  contact.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-blue-500/50 hover:bg-white/[0.08] transition-all duration-300 flex flex-col h-full group cursor-pointer"
             >
               <div className="flex flex-col gap-4 mb-4">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
