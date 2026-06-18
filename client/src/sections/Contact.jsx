@@ -32,10 +32,7 @@ const Contact = () => {
     setStatus("loading");
 
     try {
-      const API_URL =
-        import.meta.env.VITE_API_URL || "https://data-seva.onrender.com";
-
-      // Prepare both requests
+      // First, send to Web3Forms (fast, reliable!)
       const web3FormsData = {
         ...formData,
         access_key: "598247ef-2eb1-4569-b80c-747581db1676",
@@ -43,18 +40,14 @@ const Contact = () => {
         from_name: "DATASEVA",
       };
 
-      // Run both API calls in parallel to make it faster!
-      await Promise.all([
-        axios.post("https://api.web3forms.com/submit", web3FormsData, {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }),
-        axios.post(`${API_URL}/api/contact`, formData),
-      ]);
+      await axios.post("https://api.web3forms.com/submit", web3FormsData, {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
 
-      // If both succeed, show success
+      // Show success immediately after Web3Forms completes!
       setStatus("success");
       setFormData({
         name: "",
@@ -62,6 +55,16 @@ const Contact = () => {
         phone: "",
         message: "",
       });
+
+      // Then, save to MongoDB in the background (non-blocking!)
+      const API_URL =
+        import.meta.env.VITE_API_URL || "https://data-seva.onrender.com";
+      try {
+        await axios.post(`${API_URL}/api/contact`, formData);
+      } catch (bgErr) {
+        console.error("Background save to DB failed:", bgErr);
+        // Don't show error to user - email already sent successfully!
+      }
     } catch (err) {
       console.error("Form submission error:", err);
       setStatus("error");
