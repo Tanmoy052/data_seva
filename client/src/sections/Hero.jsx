@@ -89,6 +89,12 @@ const Hero = () => {
                   boxShadow: "0 0 40px rgba(37, 99, 235, 0.4)",
                 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  const contact = document.getElementById("contact");
+                  if (contact) {
+                    contact.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-9 py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 transition-all w-full sm:w-auto"
               >
                 Get Started <ArrowRight className="w-5 h-5" />
@@ -100,6 +106,12 @@ const Hero = () => {
                   backgroundColor: "rgba(255, 255, 255, 0.05)",
                 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  const portfolio = document.getElementById("portfolio");
+                  if (portfolio) {
+                    portfolio.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="bg-transparent border border-white/10 text-white px-6 md:px-9 py-3.5 rounded-2xl font-bold text-base flex items-center justify-center gap-3 transition-all backdrop-blur-sm w-full sm:w-auto"
               >
                 Our Work{" "}
@@ -155,14 +167,9 @@ const Hero = () => {
                   <img
                     src="/dataseva.jpeg"
                     alt="Startup"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover brightness-125"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
-                    <p className="text-white font-bold text-base md:text-lg leading-tight">
-                      Dataseva Headquarters
-                    </p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </motion.div>
               </div>
             </div>

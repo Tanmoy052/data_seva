@@ -20,7 +20,7 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/#about" },
     { name: "Services", href: "/#services" },
-    { name: "Portfolio", href: "/#portfolio" },
+    { name: "Projects", href: "/#portfolio" },
     { name: "Contact", href: "/#contact" },
   ];
 
@@ -85,6 +85,13 @@ const Navbar = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              const contact = document.getElementById("contact");
+              if (contact) {
+                contact.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/20 active:shadow-none"
           >
             Start a Project <ArrowRight className="w-4 h-4" />
@@ -124,7 +131,16 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <button className="bg-blue-600 text-white px-6 py-4 rounded-xl font-bold text-center">
+              <button 
+                className="bg-blue-600 text-white px-6 py-4 rounded-xl font-bold text-center"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  const contact = document.getElementById("contact");
+                  if (contact) {
+                    contact.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 Start a Project
               </button>
             </div>
