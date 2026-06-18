@@ -14,21 +14,32 @@ const ScrollToTop = () => {
       return;
     }
 
-    // Scroll to top on route change
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-
-    // Handle hash navigation after scroll to top
-    if (location.hash) {
+    // Check if we have a scrollTo from state
+    if (location.state?.scrollTo) {
+      const id = location.state.scrollTo;
       setTimeout(() => {
-        const id = location.hash.slice(1);
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
+    } else {
+      // Scroll to top on route change if no scrollTo
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+
+      // Handle hash navigation after scroll to top
+      if (location.hash) {
+        setTimeout(() => {
+          const id = location.hash.slice(1);
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
     }
   }, [location]);
 

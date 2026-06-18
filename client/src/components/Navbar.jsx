@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 
@@ -7,6 +7,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +33,7 @@ const Navbar = () => {
     } else if (href.startsWith("/#")) {
       if (location.pathname !== "/") {
         // Not on home page, navigate first
-        // The hash will be handled after navigation
+        navigate("/", { state: { scrollTo: href.slice(2) } });
       } else {
         // Already on home page, scroll to section
         const id = href.slice(2);
@@ -40,6 +41,18 @@ const Navbar = () => {
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
+      }
+    }
+  };
+
+  const handleStartProject = () => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: "contact" } });
+    } else {
+      const contact = document.getElementById("contact");
+      if (contact) {
+        contact.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -86,13 +99,7 @@ const Navbar = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              const contact = document.getElementById("contact");
-              if (contact) {
-                contact.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
+            onClick={handleStartProject}
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/20 active:shadow-none"
           >
             Start a Project <ArrowRight className="w-4 h-4" />
@@ -134,13 +141,7 @@ const Navbar = () => {
               ))}
               <button
                 className="bg-blue-600 text-white px-6 py-4 rounded-xl font-bold text-center"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  const contact = document.getElementById("contact");
-                  if (contact) {
-                    contact.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={handleStartProject}
               >
                 Start a Project
               </button>
