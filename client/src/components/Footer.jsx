@@ -27,12 +27,18 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               {[
-                { icon: Twitter, href: "#" },
+                {
+                  icon: Twitter,
+                  href: "https://tanmoypal-portfolio.vercel.app/",
+                },
                 {
                   icon: Linkedin,
                   href: "https://www.linkedin.com/in/tanmoy-pal-755611294",
                 },
-                { icon: Instagram, href: "#" },
+                {
+                  icon: Instagram,
+                  href: "https://tanmoypal-portfolio.vercel.app/",
+                },
                 { icon: Mail, href: "mailto:tanmoypal30102004@gmail.com" },
               ].map((item, i) => (
                 <a

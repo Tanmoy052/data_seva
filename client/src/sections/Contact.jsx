@@ -144,8 +144,14 @@ const Contact = () => {
                   icon: Linkedin,
                   href: "https://www.linkedin.com/in/tanmoy-pal-755611294",
                 },
-                { icon: Twitter, href: "#" },
-                { icon: Instagram, href: "#" },
+                {
+                  icon: Twitter,
+                  href: "https://tanmoypal-portfolio.vercel.app/",
+                },
+                {
+                  icon: Instagram,
+                  href: "https://tanmoypal-portfolio.vercel.app/",
+                },
               ].map((item, i) => (
                 <a
                   key={i}
