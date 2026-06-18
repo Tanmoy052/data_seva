@@ -167,52 +167,6 @@ const Hero = () => {
                     </p>
                   </div>
                 </motion.div>
-
-                {/* Floating Stats */}
-                <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute top-4 right-0 md:top-10 glass-card p-3 md:p-4 border border-white/10 shadow-2xl z-30 flex items-center gap-3 md:gap-4"
-                >
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400">
-                    <ArrowRight className="w-5 h-5 md:w-6 md:h-6 -rotate-45" />
-                  </div>
-                  <div>
-                    <p className="text-[8px] md:text-[10px] text-gray-400 uppercase font-bold tracking-wider">
-                      Growth
-                    </p>
-                    <p className="text-base md:text-lg font-bold text-white">
-                      +124%
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [0, 15, 0] }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                  className="absolute bottom-4 left-0 md:bottom-10 glass-card p-3 md:p-4 border border-white/10 shadow-2xl z-30 flex items-center gap-3 md:gap-4"
-                >
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400">
-                    <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" />
-                  </div>
-                  <div>
-                    <p className="text-[8px] md:text-[10px] text-gray-400 uppercase font-bold tracking-wider">
-                      Success Rate
-                    </p>
-                    <p className="text-base md:text-lg font-bold text-white">
-                      99.9%
-                    </p>
-                  </div>
-                </motion.div>
               </div>
             </div>
           </motion.div>
