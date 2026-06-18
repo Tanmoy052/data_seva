@@ -162,9 +162,6 @@ const Hero = () => {
                     <p className="text-white font-bold text-base md:text-lg leading-tight">
                       Dataseva Headquarters
                     </p>
-                    <p className="text-blue-400 text-xs md:text-sm font-medium">
-                      Innovating the future
-                    </p>
                   </div>
                 </motion.div>
               </div>
