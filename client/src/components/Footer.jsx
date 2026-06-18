@@ -1,5 +1,5 @@
 import React from 'react';
-import { Twitter, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Twitter, Linkedin, Mail, Instagram, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,7 +19,7 @@ const Footer = () => {
               A senior-led digital agency specializing in high-performance web ecosystems and strategic startup growth.
             </p>
             <div className="flex gap-4">
-              {[Twitter, Linkedin, Mail].map((Icon, i) => (
+              {[Twitter, Linkedin, Instagram, Mail].map((Icon, i) => (
                 <a key={i} href="#" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 hover:border-blue-600 transition-all duration-300">
                   <Icon className="w-5 h-5" />
                 </a>

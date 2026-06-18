@@ -10,6 +10,7 @@ import {
   Phone,
   Linkedin,
   Twitter,
+  Instagram,
 } from "lucide-react";
 
 const Contact = () => {
@@ -138,7 +139,7 @@ const Contact = () => {
             </div>
 
             <div className="flex gap-4">
-              {[Linkedin, Twitter].map((Icon, i) => (
+              {[Linkedin, Twitter, Instagram].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
