@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-[#0B0F19] text-white font-sans antialiased overflow-x-hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+@utility glass {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@utility glass-card {
+  @apply glass rounded-3xl transition-all duration-500;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(37, 99, 235, 0.3);
+    transform: translateY(-8px);
+    box-shadow:
+      0 20px 40px -20px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(37, 99, 235, 0.1);
+  }
+}
+
+@utility glow-blue {
+  box-shadow: 0 0 40px -10px rgba(37, 99, 235, 0.5);
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400;
+}
+
+@utility section-padding {
+  @apply py-24 px-6 md:px-12 lg:px-24;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#0B0F19];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverse-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+.animate-reverse-spin {
+  animation: reverse-spin 20s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}

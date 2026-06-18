@@ -1,0 +1,13 @@
+{
+  "name": "data-seva",
+  "version": "1.0.0",
+  "description": "Full-stack MERN freelance startup website",
+  "scripts": {
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
