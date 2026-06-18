@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: "About", href: "/#about" },
     { name: "Services", href: "/#services" },
     { name: "Projects", href: "/#portfolio" },
+    { name: "Portfolio", href: "/#team-portfolio" },
     { name: "Contact", href: "/#contact" },
   ];
 
@@ -131,7 +132,7 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <button 
+              <button
                 className="bg-blue-600 text-white px-6 py-4 rounded-xl font-bold text-center"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
