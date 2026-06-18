@@ -17,6 +17,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     message: "",
   });
   const [status, setStatus] = useState("idle");
@@ -31,7 +32,10 @@ const Contact = () => {
     setStatus("loading");
 
     try {
-      // First, send to Web3Forms for email notification
+      const API_URL =
+        import.meta.env.VITE_API_URL || "https://data-seva.onrender.com";
+
+      // Prepare both requests
       const web3FormsData = {
         ...formData,
         access_key: "598247ef-2eb1-4569-b80c-747581db1676",
@@ -39,23 +43,23 @@ const Contact = () => {
         from_name: "DATASEVA",
       };
 
-      await axios.post("https://api.web3forms.com/submit", web3FormsData, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-
-      // Then, save to your MongoDB database
-      const API_URL =
-        import.meta.env.VITE_API_URL || "https://data-seva.onrender.com";
-      await axios.post(`${API_URL}/api/contact`, formData);
+      // Run both API calls in parallel to make it faster!
+      await Promise.all([
+        axios.post("https://api.web3forms.com/submit", web3FormsData, {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }),
+        axios.post(`${API_URL}/api/contact`, formData),
+      ]);
 
       // If both succeed, show success
       setStatus("success");
       setFormData({
         name: "",
         email: "",
+        phone: "",
         message: "",
       });
     } catch (err) {
@@ -201,6 +205,19 @@ const Contact = () => {
                     required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600 text-sm"
                     placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-white mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-600 text-sm"
+                    placeholder="+91 1234567890"
                   />
                 </div>
                 <div>

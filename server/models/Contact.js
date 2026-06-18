@@ -14,6 +14,10 @@ const contactSchema = new mongoose.Schema({
       'Please provide a valid email'
     ]
   },
+  phone: {
+    type: String,
+    trim: true
+  },
   message: {
     type: String,
     required: [true, 'Please provide a message'],
