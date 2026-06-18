@@ -6,6 +6,7 @@ import TrustSection from "./sections/TrustSection";
 import About from "./sections/About";
 import Services from "./sections/Services";
 import Portfolio from "./sections/Portfolio";
+import TeamPortfolio from "./sections/TeamPortfolio";
 import FAQ from "./sections/FAQ";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
@@ -20,6 +21,7 @@ function HomePage() {
       <About />
       <Services />
       <Portfolio />
+      <TeamPortfolio />
       <FAQ />
       <Contact />
     </>
