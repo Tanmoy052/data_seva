@@ -47,7 +47,7 @@ const Contact = () => {
       });
 
       // Then, save to your MongoDB database
-      await axios.post("http://localhost:5000/api/contact", formData);
+      await axios.post("https://data-seva.onrender.com/api/contact", formData);
 
       // If both succeed, show success
       setStatus("success");
