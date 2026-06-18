@@ -38,8 +38,8 @@ const About = () => {
                 "Senior-Level Engineering",
                 "Scalable Data Pipelines",
                 "AI-First Methodology",
-                "Cloud Data Architecture",
-                "Governance & Compliance",
+                
+               
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3 text-gray-300">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600/20 flex items-center justify-center">
@@ -81,7 +81,6 @@ const About = () => {
             {/* Stats Overlay */}
             <div className="absolute -bottom-10 -right-0 sm:right-10 glass-card p-8 border border-white/20 shadow-2xl text-center min-w-[240px] z-20">
               <div className="flex flex-col items-center">
-                <h3 className="text-5xl font-black text-white mb-1">98%</h3>
                 <p className="text-blue-400 font-bold text-xs uppercase tracking-widest">
                   Client Satisfaction
                 </p>
