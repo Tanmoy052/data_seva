@@ -71,11 +71,11 @@ const TeamPortfolio = () => {
               className="glass-card rounded-[1.5rem] md:rounded-[2rem] border border-white/10 overflow-hidden flex flex-col h-full"
             >
               {/* Team Member Image */}
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-square overflow-hidden">
                 <img
                   src={member.image}
                   alt={`${member.name} - Portfolio`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-black/20"
                 />
               </div>
 
